@@ -17,9 +17,15 @@
             <li>Birth Yea: <%= @character.birth_year %></li>
             <li>Gender: <%= @character.gender %></li>
             <li>Birth Year: <%= @character.birth_year %></li>
-            <li>Homeworld: <%= @character.planet.name %></li>
           </ul>
         </div>
+
+        <div class="image">
+        <% if @character.image_url %>
+          <%= image_tag @character.image_url, alt: "alttext" %>
+        <% end %>
+        </div>
+
         <div class="stats planet">
           <p>Homeworld: <%= @character.planet.name %></p>
             <ul>
@@ -36,13 +42,27 @@
       </div>
       <div class="stats starship">
         Starships: <% @character.starships.each do |starship| %>
+
         <div class="d-flex">
+
           <div class="stats m-1 flip-card">
+
             <div class="flip-card-inner">
+
               <div class="flip-card-front">
-                <p><%= link_to starship.name, starship_path(starship) %></p>
-                <img src="img_avatar.png" alt="Avatar" style="width:600px;height:600px;">
+
+
+
+<!--                 <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= starship.image_url%>);" >
+ -->                <!-- <p>starship.name</p> -->
+                  <%= image_tag "https://www.denofgeek.com/wp-content/uploads/2015/12/big_thumb_cd04cc40bd2e7060c7a2b417b1743b74.jpg?fit=620%2C349", alt: "alttext" %>
+                  <div class="card-img-overlay">
+                    <p class="card-title"><%= starship.name %></p>
+                  </div>
+                <!-- </div> -->
               </div>
+
+              <%= link_to starship_path(starship) do %>
               <div class="flip-card-back">
                 <ul>
                 <li>model: <%= starship.model %></li>
@@ -57,12 +77,17 @@
                 <li>hyperdrive: <%= starship.hyperdrive_rating %></li>
                 <li>class: <%= starship.starship_class %></li>
                 </ul>
+
               </div>
+              <% end %>
             </div>
+
           </div>
         <% end %>
 
         </div>
+
       </div>
     </div>
 </div>
+<%= link_to 'edit photo', edit_character_path(@character) %>

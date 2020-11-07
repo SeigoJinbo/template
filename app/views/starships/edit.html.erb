@@ -1,0 +1,7 @@
+edit.html.erb
+<h1>Starship#edit</h1>
+
+<%= simple_form_for(@starship) do |f| %>
+  <%= f.input :image_url%>
+  <%= f.submit 'upload'%>
+<% end %>

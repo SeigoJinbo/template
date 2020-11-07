@@ -19,7 +19,7 @@ body {
 
   color: #00DBEE;
   font-family: monospace;
-  background-image: radial-gradient(circle, #00080B 0%, #012638 100%);
+  background-image: radial-gradient(circle, #012638 25%, #00080B 100%);
 }
 
 h1 {
@@ -35,23 +35,13 @@ a {
   margin-top: 40px;
 }
 
-.stats {
-  border: 4px solid #00DCEE;
-  padding: 8px;
+
+.image img {
+   object-fit: cover;
 
 }
 
-.name {
-  margin-bottom: -4px;
-}
+.card-image {
 
-.bio {
-  margin: -12px;
-}
-
-.starship {
-  margin-top: 8px;
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-bottom: -12px;
+  background-size: cover;
 }
