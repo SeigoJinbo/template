@@ -1,0 +1,68 @@
+<div class="container">
+
+<div class="stats name">
+
+  <h1><%= @character.name %></h1>
+    </div>
+    <div class="stats">
+      <div class="d-flex justify-content-between">
+        <div class="stats bio">
+          <ul>
+            <p>Bio:</p>
+            <li>Height: <%= @character.height %></li>
+            <li>Mass: <%= @character.mass %></li>
+            <li>Hair Color: <%= @character.hair_color %></li>
+            <li>Skin Color: <%= @character.skin_color %></li>
+            <li>Eye Color: <%= @character.eye_color %></li>
+            <li>Birth Yea: <%= @character.birth_year %></li>
+            <li>Gender: <%= @character.gender %></li>
+            <li>Birth Year: <%= @character.birth_year %></li>
+            <li>Homeworld: <%= @character.planet.name %></li>
+          </ul>
+        </div>
+        <div class="stats planet">
+          <p>Homeworld: <%= @character.planet.name %></p>
+            <ul>
+              <li>rotation: <%= @character.planet.rotation_period %></li>
+              <li>orbital period: <%= @character.planet.orbital_period %></li>
+              <li>diameter: <%= @character.planet.diameter %></li>
+              <li>climate: <%= @character.planet.climate %></li>
+              <li>gravity: <%= @character.planet.gravity %></li>
+              <li>terrain: <%= @character.planet.terrain %></li>
+              <li>surface water: <%= @character.planet.surface_water %></li>
+              <li>population: <%= @character.planet.population %></li>
+            </ul>
+        </div>
+      </div>
+      <div class="stats starship">
+        Starships: <% @character.starships.each do |starship| %>
+        <div class="d-flex">
+          <div class="stats m-1 flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p><%= link_to starship.name, starship_path(starship) %></p>
+                <img src="img_avatar.png" alt="Avatar" style="width:600px;height:600px;">
+              </div>
+              <div class="flip-card-back">
+                <ul>
+                <li>model: <%= starship.model %></li>
+                <li>manufacturer: <%= starship.manufacturer %></li>
+                <li>cost: <%= starship.cost_in_credits %></li>
+                <li>length: <%= starship.length %></li>
+                <li>speed: <%= starship.max_atmosphering_speed %></li>
+                <li>crew: <%= starship.crew %></li>
+                <li>passengers: <%= starship.passengers %></li>
+                <li>cargo: <%= starship.cargo_capacity %></li>
+                <li>consumables: <%= starship.consumables %></li>
+                <li>hyperdrive: <%= starship.hyperdrive_rating %></li>
+                <li>class: <%= starship.starship_class %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+</div>

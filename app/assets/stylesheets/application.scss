@@ -11,3 +11,47 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import "characters.scss";
+@import "cards";
+
+body {
+
+  color: #00DBEE;
+  font-family: monospace;
+  background-image: radial-gradient(circle, #00080B 0%, #012638 100%);
+}
+
+h1 {
+  font-family: monospace;
+  color: white;
+}
+
+a {
+  color: #00DBEE;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.stats {
+  border: 4px solid #00DCEE;
+  padding: 8px;
+
+}
+
+.name {
+  margin-bottom: -4px;
+}
+
+.bio {
+  margin: -12px;
+}
+
+.starship {
+  margin-top: 8px;
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-bottom: -12px;
+}
