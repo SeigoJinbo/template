@@ -6,7 +6,7 @@
     </div>
     <div class="stats">
       <div class="d-flex justify-content-between">
-        <div class="stats bio">
+        <div class="stats specs">
           <ul>
             <li>model: <%= @starship.model %></li>
             <li>manufacturer: <%= @starship.manufacturer %></li>
@@ -22,7 +22,7 @@
           </ul>
         </div>
 
-        <div class="image">
+        <div class="ship-image">
         <% if @starship.image_url %>
           <%= image_tag @starship.image_url, alt: "alttext" %>
         <% end %>
@@ -30,20 +30,23 @@
 
 
       </div>
-      <div class="stats starship">
-        Pilots: <% @starship.characters.each do |character| %>
-
-        <div class="d-flex">
-
+          <div class="stats starship">
+      Pilots:
+      <div class="cards">
+        <% @starship.characters.sort_by { |character| character.id }.each do |character| %>
           <div class="stats m-1 flip-card">
-
             <div class="flip-card-inner">
-
               <div class="flip-card-front">
-                <p><%= link_to character.name, character_path(character) %></p>
-                <img src="img_avatar.png" alt="Avatar" style="width:600px;height:600px;">
+                  <% if character.image_url %>
+                    <%= image_tag character.image_url, alt: "alttext" %>
+                  <% else %>
+                  <%= image_tag "https://www.denofgeek.com/wp-content/uploads/2015/12/big_thumb_cd04cc40bd2e7060c7a2b417b1743b74.jpg?fit=620%2C349", alt: "alttext" %>
+                  <% end %>
+                  <div class="card-img-overlay">
+                    <p class="card-title"><%= character.name %></p>
+                  </div>
+                <!-- </div> -->
               </div>
-
               <%= link_to character_path(character) do %>
               <div class="flip-card-back">
                 <ul>
@@ -57,17 +60,13 @@
                   <li>Gender: <%= character.gender %></li>
                   <li>Birth Year: <%= character.birth_year %></li>
                 </ul>
-
               </div>
               <% end %>
             </div>
-
           </div>
         <% end %>
-
-        </div>
-
       </div>
     </div>
+  </div>
 </div>
 <%= link_to 'edit photo', edit_starship_path(@starship) %>

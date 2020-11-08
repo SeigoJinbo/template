@@ -100,7 +100,7 @@ while true
         garage.save
         p ship.name
         p pilot.name
-        puts "storing ship in garage"
+        puts "storing #{ship.name} in #{character.name}'s garage"
       end
     end
   end
@@ -110,5 +110,17 @@ while true
   else
     break
   end
+
+  luke = Character.find_by(name: "Luke Skywalker")
+  luke.image_url = 'https://i.pinimg.com/originals/c4/4e/91/c44e917adc21d8201aebfcc08fea377a.jpg'
+  luke.save
+
+  x_wing = Starship.find_by(name: "X-wing")
+  x_wing.image_url = 'https://www.denofgeek.com/wp-content/uploads/2015/12/big_thumb_cd04cc40bd2e7060c7a2b417b1743b74.jpg?fit=620%2C349'
+  x_wing.save
+
+  tatooine = Planet.find_by(name: "Tatooine")
+  tatooine.image_url ='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ed97b542-8697-4d5c-a783-0dd8185c89d0/d15sn9h-b91d0d97-8378-4b8c-b943-dd1b39a21a84.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZWQ5N2I1NDItODY5Ny00ZDVjLWE3ODMtMGRkODE4NWM4OWQwXC9kMTVzbjloLWI5MWQwZDk3LTgzNzgtNGI4Yy1iOTQzLWRkMWIzOWEyMWE4NC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.CHwz0EDITrtVt8qD4zmywGa5jkag5gH6cS4G1eNS_Xs'
+  tatooine.save
 end
 

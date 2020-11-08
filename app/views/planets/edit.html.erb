@@ -1,0 +1,7 @@
+edit.html.erb
+<h1>Planet#edit</h1>
+
+<%= simple_form_for(@planet) do |f| %>
+  <%= f.input :image_url%>
+  <%= f.submit 'upload'%>
+<% end %>

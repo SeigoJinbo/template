@@ -2,6 +2,11 @@ class CharactersController < ApplicationController
   before_action :set_character, only: [:edit, :update, :show]
   def index
     @characters = Character.all.sort_by { |character| character.id }
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @characters = Character.where("name ILIKE ?", "%#{@name}%")
+    end
   end
 
   def show
@@ -28,6 +33,7 @@ class CharactersController < ApplicationController
 
   def destroy
   end
+
 
   private
 
